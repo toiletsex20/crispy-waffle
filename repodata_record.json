@@ -1,0 +1,30 @@
+{
+  "arch": "x86_64",
+  "build": "py311hdab7c0b_1",
+  "build_number": 1,
+  "channel": "https://repo.anaconda.com/pkgs/main/win-64",
+  "constrains": [],
+  "depends": [
+    "mkl_fft",
+    "mkl_random",
+    "python >=3.11,<3.12.0a0",
+    "vc >=14.2,<15.0a0",
+    "blas 1.0 mkl",
+    "vs2015_runtime >=14.29.30133,<15.0a0",
+    "mkl-service >=2.3.0,<3.0a0",
+    "mkl >=2023.1.0,<2024.0a0",
+    "numpy-base 2.0.1 py311hd01c5d8_1"
+  ],
+  "fn": "numpy-2.0.1-py311hdab7c0b_1.conda",
+  "license": "BSD-3-Clause",
+  "license_family": "BSD",
+  "md5": "107def12fc9be7015e430c0ca8df9620",
+  "name": "numpy",
+  "platform": "win32",
+  "sha256": "9591d5f158525237fb0197db685702a58c207c707a57d37268e2e64c62e12e01",
+  "size": 11687,
+  "subdir": "win-64",
+  "timestamp": 1725476346000,
+  "url": "https://repo.anaconda.com/pkgs/main/win-64/numpy-2.0.1-py311hdab7c0b_1.conda",
+  "version": "2.0.1"
+}
