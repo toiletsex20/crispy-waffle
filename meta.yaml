@@ -1,0 +1,132 @@
+# This file created by conda-build 24.7.1
+# ------------------------------------------------
+
+package:
+  name: numpy
+  version: 2.0.1
+source:
+  - patches:
+      - patches/0003-intel_init_mkl.patch
+    sha256: 485b87235796410c3519a699cfe1faab097e509e90ebb05dcd098db2ae87e7b3
+    url: https://github.com/numpy/numpy/releases/download/v2.0.1/numpy-2.0.1.tar.gz
+build:
+  number: 1
+  string: py311hdab7c0b_1
+requirements:
+  build:
+    - vs2019_win-64 19.29.30154 h96f319f_5
+    - vswhere 2.8.4 haa95532_0
+  host:
+    - blas 1.0 mkl
+    - bzip2 1.0.8 h2bbff1b_6
+    - ca-certificates 2024.7.2 haa95532_0
+    - intel-openmp 2023.1.0 h59b6b97_46320
+    - libffi 3.4.4 hd77b12b_1
+    - mkl 2023.1.0 h6b88ed4_46358
+    - mkl-devel 2023.1.0 h712c094_46358
+    - mkl-include 2023.1.0 haa95532_46358
+    - openssl 3.0.14 h827c3e9_0
+    - python 3.11.9 he1021f5_0
+    - sqlite 3.45.3 h2bbff1b_0
+    - tbb 2021.8.0 h59b6b97_0
+    - tk 8.6.14 h0416ee5_0
+    - tzdata 2024a h04d1e81_0
+    - vc 14.40 h2eaa2aa_0
+    - vs2015_runtime 14.40.33807 h98bb1dd_0
+    - xz 5.4.6 h8cc25b3_1
+    - zlib 1.2.13 h8cc25b3_1
+  run:
+    - blas 1.0 mkl
+    - mkl >=2023.1.0,<2024.0a0
+    - mkl-service >=2.3.0,<3.0a0
+    - mkl_fft
+    - mkl_random
+    - numpy-base 2.0.1 py311hd01c5d8_1
+    - python >=3.11,<3.12.0a0
+    - vc >=14.2,<15.0a0
+    - vs2015_runtime >=14.29.30133,<15.0a0
+test:
+  commands:
+    - f2py -h
+    - python -c "import numpy; numpy.show_config()"
+    - set OPENBLAS_NUM_THREADS=1
+    - pytest -vv --pyargs numpy -k "not (_not_a_real_test)" --durations=50 --durations-min=1.0
+  imports:
+    - numpy
+    - numpy.core.multiarray
+    - numpy.core.numeric
+    - numpy.core.umath
+    - numpy.ctypeslib
+    - numpy.dtypes
+    - numpy.exceptions
+    - numpy.f2py
+    - numpy.fft
+    - numpy.lib
+    - numpy.lib.array_utils
+    - numpy.lib.format
+    - numpy.lib.introspect
+    - numpy.lib.mixins
+    - numpy.lib.npyio
+    - numpy.lib.recfunctions
+    - numpy.lib.scimath
+    - numpy.lib.stride_tricks
+    - numpy.linalg
+    - numpy.linalg.lapack_lite
+    - numpy.ma
+    - numpy.ma.extras
+    - numpy.ma.mrecords
+    - numpy.polynomial
+    - numpy.polynomial.chebyshev
+    - numpy.polynomial.hermite
+    - numpy.polynomial.hermite_e
+    - numpy.polynomial.laguerre
+    - numpy.polynomial.legendre
+    - numpy.polynomial.polynomial
+    - numpy.random
+    - numpy.random.mtrand
+    - numpy.strings
+    - numpy.testing
+    - numpy.testing.overrides
+    - numpy.typing
+    - numpy.typing.mypy_plugin
+    - numpy.version
+  requires:
+    - charset-normalizer
+    - hypothesis >=6.81.1
+    - intel-fortran_win-64 2022.1.0.*
+    - meson
+    - mypy >=1.7.1
+    - pip
+    - pytest >=7.4.0
+    - pytest-cov >=4.1.0
+    - pytest-xdist
+    - pytz >=2023.3.post1
+    - typing-extensions >=4.2.0
+    - vs2019_win-64
+about:
+  description: 'NumPy is the fundamental package needed for scientific computing with
+    Python.
+
+    '
+  dev_url: https://github.com/numpy/numpy
+  doc_url: https://numpy.org/doc/stable/reference/
+  home: https://numpy.org/
+  license: BSD-3-Clause
+  license_family: BSD
+  license_file:
+    - LICENSE.txt
+    - LICENSES_bundled.txt
+  summary: Array processing for numbers, strings, records, and objects.
+extra:
+  copy_test_source_files: true
+  final: true
+  flow_run_id: 01f219b5-5b94-471f-8b2d-a9da5199c75e
+  recipe-maintainers:
+    - chenghlee
+    - jakirkham
+    - msarahan
+    - ocefpaf
+    - pelson
+    - rgommers
+  remote_url: git@github.com:AnacondaRecipes/numpy-feedstock.git
+  sha: 2622e67bed5121a80764e00bc37dcf127812f7b6
